@@ -1,35 +1,41 @@
-# ***********************
-# *** Executable File ***
-# ***********************
-
-$(DRACMAPOSITIONMAGNAMENT): $(OBJECT_CPP_FILE_MAIN) $(LIBRARY_FILE_DRACMAAPI) $(LIBRARY_FILE_DRACMAPOSITIONMAGNAMENT_RISK) $(LIBRARY_FILE_DRACMAPOSITIONMAGNAMENT_LOGIC) $(LIBRARY_FILE_DRACMAPOSITIONMAGNAMENT_WEALTH)
-	@mkdir -p $(dir $@)
-	$(LD) $(LDFLAGS) -o $@ $< $(LDGNUAPI) $(LDDEPEND) $(LDTWS) $(LDDRACMA) $(LDRPATH)
-
 # *****************
 # *** Main File ***
 # *****************
 
-$(OBJECT_CPP_FILE_MAIN): $(SOURCE_CPP_FILE_MAIN)
+$(OBJECT_CPP_FILE_START): $(SOURCE_CPP_FILE_START)
 	@mkdir -p $(dir $@)
-	$(CXX) $(CXXFLAGS) -Os -c -o $@ $<
+	$(CC) $(CFLAGS) -c -o $@ $<
 
-# *************************
-# *** Dynamic Libraries ***
-# *************************
+# ***********************************
+# *** Nebula Operating System ELF ***
+# ***********************************
 
-$(LIBRARY_FILE_DRACMAAPI): $(FIND_OBJECT_DRACMAAPI_C) $(FIND_OBJECT_DRACMAAPI_CPP) $(FIND_OBJECT_DRACMAAPI_COB)
+$(NEBULA_ELF): $(FIND_OBJECT_FILES_SC_C) $(FIND_OBJECT_FILES_MMU_C) $(FIND_OBJECT_FILES_IPC_C) $(FIND_OBJECT_FILES_ISR_C) $(FIND_OBJECT_FILES_TMM_C)
 	@mkdir -p $(dir $@)
-	$(LD) $(LDFLAGS) -shared -Wl,-soname,$(shell basename $@) -o $@ $^ $(LDGNUAPI) $(LDDEPEND) $(LDTWS) $(LDRPATH)
+	$(LD) $(LDFLAGS) -o $@ $<
 
-$(LIBRARY_FILE_DRACMAPOSITIONMAGNAMENT_RISK): $(FIND_OBJECT_DRACMAPOSITIONMAGNAMENT_RISK_C) $(FIND_OBJECT_DRACMAPOSITIONMAGNAMENT_RISK_CPP) $(FIND_OBJECT_DRACMAPOSITIONMAGNAMENT_RISK_COB)
-	@mkdir -p $(dir $@)
-	$(LD) $(LDFLAGS) -shared -Wl,-soname,$(shell basename $@) -o $@ $^ $(LDGNUAPI) $(LDDEPEND) $(LDTWS) $(LDRPATH)
+# **********************
+# *** Generate Image ***
+# **********************
 
-$(LIBRARY_FILE_DRACMAPOSITIONMAGNAMENT_LOGIC): $(FIND_OBJECT_DRACMAPOSITIONMAGNAMENT_LOGIC_C) $(filter-out $(OBJECT_CPP_FILE_MAIN),$(FIND_OBJECT_DRACMAPOSITIONMAGNAMENT_LOGIC_CPP)) $(FIND_OBJECT_DRACMAPOSITIONMAGNAMENT_LOGIC_COB)
-	@mkdir -p $(dir $@)
-	$(LD) $(LDFLAGS) -shared -Wl,-soname,$(shell basename $@) -o $@ $^ $(LDGNUAPI) $(LDDEPEND) $(LDTWS) $(LDRPATH)
+ifeq ($(TARGET), AMD64)
 
-$(LIBRARY_FILE_DRACMAPOSITIONMAGNAMENT_WEALTH): $(FIND_OBJECT_DRACMAPOSITIONMAGNAMENT_WEALTH_C) $(FIND_OBJECT_DRACMAPOSITIONMAGNAMENT_WEALTH_CPP) $(FIND_OBJECT_DRACMAPOSITIONMAGNAMENT_WEALTH_COB)
+$(NEBULA_IMG): $(NEBULA_ELF)
 	@mkdir -p $(dir $@)
-	$(LD) $(LDFLAGS) -shared -Wl,-soname,$(shell basename $@) -o $@ $^ $(LDGNUAPI) $(LDDEPEND) $(LDTWS) $(LDRPATH)
+	cp $< $@
+
+else ifeq ($(TARGET), ARM64)
+
+$(NEBULA_BIN): $(NEBULA_ELF)
+	@mkdir -p $(dir $@)
+	$(CP) $(CPFLAGS) $< $@
+
+$(NEBULA_IMG): $(NEBULA_BIN)
+	@mkdir -p $(dir $@)
+	cp $< $@
+
+else
+
+$(error Don't support $(TARGET))
+
+endif

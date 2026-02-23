@@ -2,24 +2,26 @@
 # *** Environment Variables ***
 # *****************************
 
-ARCH ?= ARM64 # Default Value
+TARGET ?= ARM64 # Default Value
 
 # *************************
 # *** Dynamic Variables ***
 # *************************
 
-ifeq ($(ARCH), AMD64)
+ifeq ($(TARGET), AMD64)
 
-MARCH       :=x86-64 
+ARCH        := x86_64-elf-
+MARCH       := x86_64
 NEBULA_NAME := NebulaOS.iso
 
-else ifeq ($(ARCH), ARM64)
+else ifeq ($(TARGET), ARM64)
 
-MARCH       := aarch64
+ARCH        := aarch64-elf-
+MARCH       := armv8-a
 NEBULA_NAME := kernel8.img
 
 else
 
-$(error Not Support $(ARCH))
+$(error Not Support $(TARGET))
 
 endif
