@@ -2,7 +2,7 @@
 # *** Main File ***
 # *****************
 
-$(OBJECT_CPP_FILE_START): $(SOURCE_CPP_FILE_START)
+$(OBJECT_FILE_START_C): $(SOURCE_FILE_START_C)
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c -o $@ $<
 
@@ -10,9 +10,17 @@ $(OBJECT_CPP_FILE_START): $(SOURCE_CPP_FILE_START)
 # *** Nebula Operating System ELF ***
 # ***********************************
 
-$(NEBULA_ELF): $(FIND_OBJECT_FILES_SC_C) $(FIND_OBJECT_FILES_MMU_C) $(FIND_OBJECT_FILES_IPC_C) $(FIND_OBJECT_FILES_ISR_C) $(FIND_OBJECT_FILES_TMM_C)
+$(NEBULA_ELF): $(OBJECT_FILE_START_C) $(FIND_OBJECT_FILES_SC_C) $(FIND_OBJECT_FILES_MMU_C) $(FIND_OBJECT_FILES_IPC_C) $(FIND_OBJECT_FILES_ISR_C) $(FIND_OBJECT_FILES_TMM_C)
 	@mkdir -p $(dir $@)
 	$(LD) $(LDFLAGS) -o $@ $<
+
+# *******************
+# *** Flat Binary ***
+# *******************
+
+$(NEBULA_BIN): $(NEBULA_ELF)
+	@mkdir -p $(dir $@)
+	$(CP) $(CPFLAGS) $< $@
 
 # **********************
 # *** Generate Image ***
@@ -25,10 +33,6 @@ $(NEBULA_IMG): $(NEBULA_ELF)
 	cp $< $@
 
 else ifeq ($(TARGET), ARM64)
-
-$(NEBULA_BIN): $(NEBULA_ELF)
-	@mkdir -p $(dir $@)
-	$(CP) $(CPFLAGS) $< $@
 
 $(NEBULA_IMG): $(NEBULA_BIN)
 	@mkdir -p $(dir $@)

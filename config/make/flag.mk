@@ -10,7 +10,7 @@ COBFLAGS := -Wall -Wextra -Werror -std=ibm-strict -fstatic-call -Iinclude
 # *** Linkers Flags ***
 # *********************
 
-LDFLAGS := -T nebula.ld
+LDFLAGS := -T $(LDSCRIPT)
 
 # ***********************
 # *** Utilities Flags ***

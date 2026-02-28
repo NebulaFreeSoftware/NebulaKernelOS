@@ -6,6 +6,12 @@ CC  := $(ARCH)gcc
 CXX := $(ARCH)g++
 COB := $(ARCH)gcobol
 
+# ******************
+# *** Assemblers ***
+# ******************
+
+AS := $(ARCH)as
+
 # ***************
 # *** Linkers ***
 # ***************

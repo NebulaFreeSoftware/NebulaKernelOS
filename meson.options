@@ -1,0 +1,1 @@
+option('TARGET', type: 'string', value: 'ARM64')

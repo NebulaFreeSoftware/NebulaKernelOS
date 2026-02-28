@@ -2,8 +2,14 @@
 # *** Main File ***
 # *****************
 
-SOURCE_CPP_FILE_START := ./src/start.c
-OBJECT_CPP_FILE_START := ./build/bin/obj/c/start.o
+SOURCE_FILE_START_C := ./src/start.c
+OBJECT_FILE_START_C := ./build/bin/obj/c/start.o
+
+# **************************
+# *** Linker Script File ***
+# **************************
+
+LDSCRIPT := $(CONFIG_FOLDER)/$(LDFILE)
 
 # ********************
 # *** Binary Files ***

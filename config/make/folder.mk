@@ -23,4 +23,10 @@ OBJECT_FOLDER_TMM_C := ./build/obj/tmm/c
 # **************
 
 BUILD_FOLDER_BIN := ./build/bin/$(ARCH)
-BUILD_FOLDER_IMG := ./build/image/$(ARCH)
+BUILD_FOLDER_IMG := ./build/img/$(ARCH)
+
+# **************
+# *** Config ***
+# **************
+
+CONFIG_FOLDER := ./config/ldscript
