@@ -32,9 +32,9 @@ extern "C" {
 // *** Special Macros ***
 // **********************
 
-#if defined(RASPBERRY)
+#if defined(__raspberry)
 #define _NEBULA_NULL_POINTER 0x3080200
-#elif defined(STANDAR_X86_64)
+#elif defined(__standar_x86_64)
 #define _NEBULA_NULL_POINTER 0x0
 #endif
 

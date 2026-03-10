@@ -23,7 +23,7 @@
 
 .globl _start
 
-.include "utils/nebula.i" // Equivalent to nebula.h but is not equal to nebula.h 
+.include "Nebula/nebula.i" // Equivalent to nebula.h but is not equal to nebula.h 
 
 // ********************
 // *** Code Section ***

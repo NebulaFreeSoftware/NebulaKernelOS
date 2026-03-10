@@ -2,8 +2,8 @@
 # *** Compilers Flags ***
 # ***********************
 
-CFLAGS   := -Wall -Wextra -Werror -ffreestanding -nostdlib -nostartfiles -march=$(MARCH) -Iinclude
-CXXFLAGS := -Wall -Wextra -Werror -ffreestanding -nostdlib -nostartfiles -march=$(MARCH) -Iinclude
+CFLAGS   := -Wall -Wextra -Werror -ffreestanding -nostdlib -nostartfiles -march=$(MARCH) -D__$(NEBULA_COMPUTE)=0 -Iinclude
+CXXFLAGS := -Wall -Wextra -Werror -ffreestanding -nostdlib -nostartfiles -march=$(MARCH) -D__$(NEBULA_COMPUTE)=0 -Iinclude
 COBFLAGS := -Wall -Wextra -Werror -std=ibm-strict -fstatic-call -Iinclude
 
 # ***********************

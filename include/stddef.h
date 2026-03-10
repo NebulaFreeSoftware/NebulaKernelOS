@@ -33,17 +33,27 @@
 extern "C" {
 #endif
 
+// *********************************
+// *** Include Stardar Libraries ***
+// *********************************
+
 #include <stdint.h>
+
+// *************************************
+// *** Include Non-Stardar Libraries ***
+// *************************************
 
 #include <Nebula/nebula.h>
 
 typedef int64_t  max_align_t;
 typedef int**    ptrdiff_t;
 
+#ifndef __cplusplus
 #ifndef _WCHAR_T
 #define _WCHAR_T
 typedef int32_t  wchar_t;
 #endif // _WCHAR_T
+#endif
 
 #ifndef _SIZE_T
 #define _SIZE_T

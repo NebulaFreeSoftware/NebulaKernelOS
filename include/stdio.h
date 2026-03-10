@@ -29,24 +29,12 @@
 #ifndef _STDIO_H
 #define _STDIO_H
 
-// ********************************
-// *** Macro for include on c++ ***
-// ********************************
-
 #ifdef __cplusplus
 extern "C" {
-#endif // __cplusplus
-
-// ********************************
-// *** Macro for include on c++ ***
-// ********************************
+#endif
 
 #ifdef __cplusplus
 }
-#endif // __cplusplus
-
-// ****************
-// *** End File ***
-// ****************
+#endif
 
 #endif // _STDIO_H

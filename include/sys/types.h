@@ -29,13 +29,13 @@
 #ifndef _SYS_TYPES_H
 #define _SYS_TYPES_H
 
-// ********************************
-// *** Macro for include on c++ ***
-// ********************************
-
 #ifdef __cplusplus
 extern "C" {
-#endif // __cplusplus
+#endif
+
+// *********************************
+// *** Include Stardar Libraries ***
+// *********************************
 
 #include <stdint.h>
 
@@ -52,16 +52,8 @@ typedef int64_t clock_t;   // Used for system times in clock ticks or CLOCKS_PER
 typedef size_t clockid_t; // Used for clock ID type in the clock and timer functions.
 #endif // _CLOCKID_T
 
-// ********************************
-// *** Macro for include on c++ ***
-// ********************************
-
 #ifdef __cplusplus
 }
-#endif // __cplusplus
-
-// ****************
-// *** End File ***
-// ****************
+#endif
 
 #endif // _SYS_TYPES_H

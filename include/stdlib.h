@@ -31,7 +31,11 @@
 
 #ifdef __cplusplus
 extern "C" {
-#endif // __cplusplus
+#endif
+
+// *************************************
+// *** Include Non-Stardar Libraries ***
+// *************************************
 
 #include <Nebula/nebula.h>
 

@@ -5,8 +5,8 @@
 SOURCE_FILE_START_ASM := ./src/assembly/$(NEBULA_ARCH)/$(COMPUTER)/start.s
 SOURCE_FILE_START_CPP := ./src/start.cpp
 
-OBJECT_FILE_START_ASM := ./build/bin/obj/start.s.o
-OBJECT_FILE_START_CPP := ./build/bin/obj/start.cpp.o
+OBJECT_FILE_START_ASM := ./build/obj/start.s.o
+OBJECT_FILE_START_CPP := ./build/obj/start.cpp.o
 
 # **************************
 # *** Linker Script File ***

@@ -35,7 +35,11 @@
 
 #ifdef __cplusplus
 extern "C" {
-#endif // __cplusplus
+#endif
+
+// *********************************
+// *** Include Stardar Libraries ***
+// *********************************
 
 #include <stdint.h>
 
@@ -94,16 +98,8 @@ typedef struct tm {
 	const char *tm_zone;   // Timezone abbreviation.
 } tm;
 
-// ********************************
-// *** Macro for include on c++ ***
-// ********************************
-
 #ifdef __cplusplus
 }
-#endif // __cplusplus
-
-// ****************
-// *** End File ***
-// ****************
+#endif
 
 #endif // _TIME_H
