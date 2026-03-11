@@ -33,6 +33,13 @@
 extern "C" {
 #endif
 
+// *************************************
+// *** Include Non-Stardar Libraries ***
+// *************************************
+
+#include <Nebula/nebula.h>
+
+
 #ifdef __cplusplus
 }
 #endif

@@ -5,9 +5,6 @@
  # Default Value for Architecture
 TARGET ?= ARM64
 
-# Default Value for the Computer
-COMPUTER ?= raspberry
-
 # *************************
 # *** Dynamic Variables ***
 # *************************
@@ -19,7 +16,7 @@ MARCH          := x86_64
 LDFILE         := x86_64.ld
 NEBULA_NAME    := NebulaOS.iso
 NEBULA_ARCH    := x86_64
-NEBULA_COMPUTE := standar_x86_64
+NEBULA_COMPUTE := standar
 
 else ifeq ($(TARGET), ARM64)
 
@@ -28,7 +25,7 @@ MARCH          := armv8.2-a
 LDFILE         := aarch64.ld
 NEBULA_NAME    := kernel8.img
 NEBULA_ARCH    := aarch64
-NEBULA_COMPUTE :=raspberry
+NEBULA_COMPUTE := raspberry
 
 else
 

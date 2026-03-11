@@ -21,9 +21,9 @@
 // *** Definition of Global Labels ***
 // ***********************************
 
-.globl _start
+.globl		_start
 
 .section .text
 	
 	_start:
-		jmp _neb_kernel // Jump to _neb_kernel_start
+		jmp		_neb_kernel // Jump to _neb_kernel_start

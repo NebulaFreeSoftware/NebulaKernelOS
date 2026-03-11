@@ -49,8 +49,7 @@ typedef unsigned char  uint8_t;
 typedef unsigned short uint16_t;
 typedef unsigned int   uint32_t;
 
-#ifndef _POSIX_V8_LP64_OFF64
-#define _POSIX_V8_LP64_OFF64
+#ifdef _POSIX_V8_LP64_OFF64
 typedef signed   long long int64_t;
 typedef unsigned long long uint64_t;
 #endif // _POSIX_V8_LP64_OFF64

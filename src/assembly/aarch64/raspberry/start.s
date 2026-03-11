@@ -21,9 +21,9 @@
 // *** Definition of Global Labels ***
 // ***********************************
 
-.globl _start
+.globl		_start
 
-.include "Nebula/nebula.i" // Equivalent to nebula.h but is not equal to nebula.h 
+.include	"Nebula/nebula.i" // Equivalent to nebula.h but is not equal to nebula.h 
 
 // ********************
 // *** Code Section ***

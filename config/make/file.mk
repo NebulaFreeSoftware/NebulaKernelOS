@@ -2,7 +2,7 @@
 # *** Main File ***
 # *****************
 
-SOURCE_FILE_START_ASM := ./src/assembly/$(NEBULA_ARCH)/$(COMPUTER)/start.s
+SOURCE_FILE_START_ASM := ./src/assembly/$(NEBULA_ARCH)/$(NEBULA_COMPUTE)/start.s
 SOURCE_FILE_START_CPP := ./src/start.cpp
 
 OBJECT_FILE_START_ASM := ./build/obj/start.s.o
